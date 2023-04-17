@@ -7,21 +7,33 @@
         <div class="row">
           <div class="col-lg-6">
             <h1>Find the fair allocation you want! LOL 🍻</h1>
-            <button type="button" @click="handleClickStoryBtn" class="btn btn-dark btn-lg start-button">
+            <button
+              type="button"
+              @click="handleClickStoryBtn"
+              class="btn btn-dark btn-lg start-button"
+            >
               <!--<i class="fab fa-apple"></i>-->
               <i class="fa-solid fa-book-sparkles"></i>
               <i class="fa-solid fa-house"></i>
               <font-awesome-icon icon="fa-solid fa-book-sparkles" />
               Start with a Story
             </button>
-            <button type="button" @click="handleClickFindSolutionBtn" class="btn btn-outline-light btn-lg start-button">
+            <button
+              type="button"
+              @click="handleClickFindSolutionBtn"
+              class="btn btn-outline-light btn-lg start-button"
+            >
               <i class="fa-brands fa-searchengin"></i>
               Find your own solution
             </button>
           </div>
 
           <div class="col-lg-6">
-            <img class="title-image" src="../assets/gopher/Azure_Bit_Gopher.png" alt="gopher-play" />
+            <img
+              class="title-image"
+              src="../assets/gopher/Azure_Bit_Gopher.png"
+              alt="gopher-play"
+            />
           </div>
         </div>
       </div>
@@ -54,13 +66,25 @@
     <!-- Testimonials -->
 
     <section id="testimonials">
-      <div id="testimonials-carousel" class="carousel slide" data-bs-ride="carousel">
+      <div
+        id="testimonials-carousel"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
         <div class="carousel-inner">
           <div class="carousel-item active">
             <h2>Cowbe and RayHan are best friends</h2>
-            <img src="../assets/gopher/COWBOY_GOPHER.png" class="testimonials-img" alt="cowboy-profile" />
+            <img
+              src="../assets/gopher/COWBOY_GOPHER.png"
+              class="testimonials-img"
+              alt="cowboy-profile"
+            />
             <em>Absolutely, We are!</em>
-            <img src="../assets/gopher/denver.png" class="testimonials-img" alt="cowboy-profile" />
+            <img
+              src="../assets/gopher/denver.png"
+              class="testimonials-img"
+              alt="cowboy-profile"
+            />
           </div>
 
           <div class="carousel-item">
@@ -68,29 +92,51 @@
               One day Cowbe found a bunch of snacks, but it is hard to share
               them with RayHan.
             </h2>
-            <img class="testimonials-img" src="../assets/gopher/snacks.png" alt="snacks-profile" />
+            <img
+              class="testimonials-img"
+              src="../assets/gopher/snacks.png"
+              alt="snacks-profile"
+            />
             <em>Yummy, They're so good, I want them all. </em>
           </div>
 
           <div class="carousel-item">
             <h2>Is a "snack" war inevitable?</h2>
             <em>Come on! Man?</em>
-            <img class="testimonials-img" src="../assets/gopher/war.png" alt="snacks-profile" />
+            <img
+              class="testimonials-img"
+              src="../assets/gopher/war.png"
+              alt="snacks-profile"
+            />
             <em>Do you wanna a fight?</em>
           </div>
 
           <div class="carousel-item">
             <h2>NO! They just need a nerd gopher!</h2>
-            <img class="testimonials-img" src="../assets/gopher/nerdy.png" alt="snacks-profile" />
+            <img
+              class="testimonials-img"
+              src="../assets/gopher/nerdy.png"
+              alt="snacks-profile"
+            />
             <em>Let us take it, we are professional</em>
           </div>
         </div>
 
-        <button class="carousel-control-prev" type="button" data-bs-target="#testimonials-carousel" data-bs-slide="prev">
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#testimonials-carousel"
+          data-bs-slide="prev"
+        >
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#testimonials-carousel" data-bs-slide="next">
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#testimonials-carousel"
+          data-bs-slide="next"
+        >
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
@@ -119,14 +165,26 @@
               <h2><i class="fas fa-hotdog"></i></h2>
               <div class="input-group mb-3">
                 <span class="input-group-text" id="hotdog-a">Cowbe: </span>
-                <input type="text" class="form-control" :placeholder="getRemainA()" aria-label="hotdog-a"
-                  aria-describedby="hotdog-a" v-model.number="hotDogA" />
+                <input
+                  type="text"
+                  class="form-control"
+                  :placeholder="getRemainA()"
+                  aria-label="hotdog-a"
+                  aria-describedby="hotdog-a"
+                  v-model.number="hotDogA"
+                />
               </div>
 
               <div class="input-group mb-3">
                 <span class="input-group-text" id="hotdog-b">RayHan: </span>
-                <input type="text" class="form-control" :placeholder="getRemainB()" aria-label="hotdog-b"
-                  aria-describedby="hotdog-b" v-model.number="hotDogB" />
+                <input
+                  type="text"
+                  class="form-control"
+                  :placeholder="getRemainB()"
+                  aria-label="hotdog-b"
+                  aria-describedby="hotdog-b"
+                  v-model.number="hotDogB"
+                />
               </div>
             </div>
           </div>
@@ -141,14 +199,26 @@
               <h2><i class="fa-sharp fa-solid fa-pizza-slice"></i></h2>
               <div class="input-group mb-3">
                 <span class="input-group-text" id="pizza-a">Cowbe: </span>
-                <input type="text" class="form-control" :placeholder="getRemainA()" aria-label="pizza-a"
-                  aria-describedby="pizza-a" v-model.number="pizzaA" />
+                <input
+                  type="text"
+                  class="form-control"
+                  :placeholder="getRemainA()"
+                  aria-label="pizza-a"
+                  aria-describedby="pizza-a"
+                  v-model.number="pizzaA"
+                />
               </div>
 
               <div class="input-group mb-3">
                 <span class="input-group-text" id="pizza-b">RayHan: </span>
-                <input type="text" class="form-control" :placeholder="getRemainB()" aria-label="pizza-b"
-                  aria-describedby="pizza-b" v-model.number="pizzaB" />
+                <input
+                  type="text"
+                  class="form-control"
+                  :placeholder="getRemainB()"
+                  aria-label="pizza-b"
+                  aria-describedby="pizza-b"
+                  v-model.number="pizzaB"
+                />
               </div>
             </div>
           </div>
@@ -163,14 +233,26 @@
               <h2><i class="fas fa-hamburger"></i></h2>
               <div class="input-group mb-3">
                 <span class="input-group-text" id="burger-a">Cowbe: </span>
-                <input type="text" class="form-control" :placeholder="getRemainA()" aria-label="burger-a"
-                  aria-describedby="burger-a" v-model.number="burgerA" />
+                <input
+                  type="text"
+                  class="form-control"
+                  :placeholder="getRemainA()"
+                  aria-label="burger-a"
+                  aria-describedby="burger-a"
+                  v-model.number="burgerA"
+                />
               </div>
 
               <div class="input-group mb-3">
                 <span class="input-group-text" id="buger-b">RayHan: </span>
-                <input type="text" class="form-control" :placeholder="getRemainB()" aria-label="burger-b"
-                  aria-describedby="burger-b" v-model.number="burgerB" />
+                <input
+                  type="text"
+                  class="form-control"
+                  :placeholder="getRemainB()"
+                  aria-label="burger-b"
+                  aria-describedby="burger-b"
+                  v-model.number="burgerB"
+                />
               </div>
             </div>
           </div>
@@ -185,14 +267,26 @@
               <h2><i class="fas fa-ice-cream"></i></h2>
               <div class="input-group mb-3">
                 <span class="input-group-text" id="ice-cream-a">Cowbe: </span>
-                <input type="text" class="form-control" :placeholder="getRemainA()" aria-label="ice-cream-a"
-                  aria-describedby="ice-cream-a" v-model.number="iceCreamA" />
+                <input
+                  type="text"
+                  class="form-control"
+                  :placeholder="getRemainA()"
+                  aria-label="ice-cream-a"
+                  aria-describedby="ice-cream-a"
+                  v-model.number="iceCreamA"
+                />
               </div>
 
               <div class="input-group mb-3">
                 <span class="input-group-text" id="ice-cream-b">RayHan: </span>
-                <input type="text" class="form-control" :placeholder="getRemainB()" aria-label="ice-cream-b"
-                  aria-describedby="ice-cream-b" v-model.number="iceCreamB" />
+                <input
+                  type="text"
+                  class="form-control"
+                  :placeholder="getRemainB()"
+                  aria-label="ice-cream-b"
+                  aria-describedby="ice-cream-b"
+                  v-model.number="iceCreamB"
+                />
               </div>
             </div>
           </div>
@@ -201,19 +295,33 @@
 
       <div class="tool-boxes row mx-4">
         <div class="col-sm-6">
-          <div class="card mb-3" :class="{
-            'text-bg-success': checkHealthA == GOOD,
-            'text-bg-danger': checkHealthA == BAD,
-            'text-bg-light': checkHealthA == NORMAL,
-          }">
-            <div class="row g-0 d-flex align-items-center justify-content-center">
+          <div
+            class="card mb-3"
+            :class="{
+              'text-bg-success': checkHealthA == GOOD,
+              'text-bg-danger': checkHealthA == BAD,
+              'text-bg-light': checkHealthA == NORMAL,
+            }"
+          >
+            <div
+              class="row g-0 d-flex align-items-center justify-content-center"
+            >
               <div class="col-md-4">
-                <img src="../assets/gopher/COWBOY_GOPHER.png" class="img-fluid rounded-start" alt="cowbe" />
-                <button type="button" class="btn" :class="{
-                  'btn-outline-primary':
-                    checkHealthA == GOOD || checkHealthA == NORMAL,
-                  'btn-success': checkHealthA == BAD,
-                }" @click="randomForA">
+                <img
+                  src="../assets/gopher/COWBOY_GOPHER.png"
+                  class="img-fluid rounded-start"
+                  alt="cowbe"
+                />
+                <button
+                  type="button"
+                  class="btn"
+                  :class="{
+                    'btn-outline-primary':
+                      checkHealthA == GOOD || checkHealthA == NORMAL,
+                    'btn-success': checkHealthA == BAD,
+                  }"
+                  @click="randomForA"
+                >
                   Random for Cowbe
                 </button>
               </div>
@@ -230,10 +338,13 @@
                     <li class="list-group-item">Burger: {{ burgerA }}</li>
                     <li class="list-group-item">Ice-cream: {{ iceCreamA }}</li>
                   </ul>
-                  <p class="card-text" :class="{
-                    'fw-bold': checkHealthA == GOOD || checkHealthA == BAD,
-                    'fst-italic': checkHealthA == GOOD || checkHealthA == BAD,
-                  }">
+                  <p
+                    class="card-text"
+                    :class="{
+                      'fw-bold': checkHealthA == GOOD || checkHealthA == BAD,
+                      'fst-italic': checkHealthA == GOOD || checkHealthA == BAD,
+                    }"
+                  >
                     {{ toolBoxMessage(checkHealthA, 'Cowbe') }}
                   </p>
                 </div>
@@ -243,12 +354,17 @@
         </div>
 
         <div class="col-sm-6">
-          <div class="card mb-3" :class="{
-            'text-bg-success': checkHealthB == GOOD,
-            'text-bg-danger': checkHealthB == BAD,
-            'text-bg-light': checkHealthB == NORMAL,
-          }">
-            <div class="row g-0 d-flex align-items-center justify-content-center">
+          <div
+            class="card mb-3"
+            :class="{
+              'text-bg-success': checkHealthB == GOOD,
+              'text-bg-danger': checkHealthB == BAD,
+              'text-bg-light': checkHealthB == NORMAL,
+            }"
+          >
+            <div
+              class="row g-0 d-flex align-items-center justify-content-center"
+            >
               <div class="col-md-8">
                 <div class="card-body">
                   <h5 class="card-title">RayHan</h5>
@@ -261,22 +377,34 @@
                     <li class="list-group-item">Burger: {{ burgerB }}</li>
                     <li class="list-group-item">Ice-cream: {{ iceCreamB }}</li>
                   </ul>
-                  <p class="card-text" :class="{
-                    'fw-bold': checkHealthB == GOOD || checkHealthB == BAD,
-                    'fst-italic': checkHealthB == GOOD || checkHealthB == BAD,
-                  }">
+                  <p
+                    class="card-text"
+                    :class="{
+                      'fw-bold': checkHealthB == GOOD || checkHealthB == BAD,
+                      'fst-italic': checkHealthB == GOOD || checkHealthB == BAD,
+                    }"
+                  >
                     {{ toolBoxMessage(checkHealthB, 'RayHan') }}
                   </p>
                 </div>
               </div>
 
               <div class="col-md-4">
-                <img src="../assets/gopher/GOPHER_DENVER.png" class="img-fluid rounded-start" alt="rayhan" />
-                <button type="button" class="btn" :class="{
-                  'btn-outline-primary':
-                    checkHealthB == GOOD || checkHealthB == NORMAL,
-                  'btn-success': checkHealthB == BAD,
-                }" @click="randomForB">
+                <img
+                  src="../assets/gopher/GOPHER_DENVER.png"
+                  class="img-fluid rounded-start"
+                  alt="rayhan"
+                />
+                <button
+                  type="button"
+                  class="btn"
+                  :class="{
+                    'btn-outline-primary':
+                      checkHealthB == GOOD || checkHealthB == NORMAL,
+                    'btn-success': checkHealthB == BAD,
+                  }"
+                  @click="randomForB"
+                >
                   Random for RayHan
                 </button>
               </div>
@@ -287,25 +415,30 @@
 
       <div id="alert-container"></div>
 
-      <button type="button" class="btn btn-outline-danger btn-lg" id="allocate-button" @click="
-        allocate(
-          ['hotDog', 'pizza', 'burger', 'iceCream'],
-          'Cowbe',
-          {
-            hotDog: hotDogA,
-            pizza: pizzaA,
-            buger: burgerA,
-            iceCream: iceCreamA,
-          },
-          'Rayhan',
-          {
-            hotDog: hotDogB,
-            pizza: pizzaB,
-            buger: burgerB,
-            iceCream: iceCreamB,
-          }
-        )
-      ">
+      <button
+        type="button"
+        class="btn btn-outline-danger btn-lg"
+        id="allocate-button"
+        @click="
+          allocate(
+            ['hotDog', 'pizza', 'burger', 'iceCream'],
+            'Cowbe',
+            {
+              hotDog: hotDogA,
+              pizza: pizzaA,
+              burger: burgerA,
+              iceCream: iceCreamA,
+            },
+            'Rayhan',
+            {
+              hotDog: hotDogB,
+              pizza: pizzaB,
+              burger: burgerB,
+              iceCream: iceCreamB,
+            }
+          )
+        "
+      >
         <i class="fas fa-rocket"></i> Allocate
       </button>
     </section>
@@ -316,7 +449,11 @@
       <h3 class="cta-heading">
         Don't fight with your best friend, come here for answers.
       </h3>
-      <button type="button" class="cta-btn btn btn-outline-light btn-lg start-button" @click="handleClickFindSolutionBtn">
+      <button
+        type="button"
+        class="cta-btn btn btn-outline-light btn-lg start-button"
+        @click="handleClickFindSolutionBtn"
+      >
         <i class="fa-brands fa-searchengin"></i>
         Find your own solution now 🪄
       </button>
@@ -325,7 +462,9 @@
 </template>
 
 <script>
+import saveWorldApi from '@/api/saveworld'
 import { useRouter } from 'vue-router'
+import qs from 'qs'
 export default {
   data() {
     return {
@@ -494,14 +633,31 @@ export default {
     },
 
     allocate(goods, agentA, valuationA, agentB, valuationB) {
-      console.log(goods, agentA, valuationA, agentB, valuationB)
-
       if (
         this.computedRemainA == 0 &&
         this.computedRemainB == 0 &&
         this.checkAllInputs(goods, valuationA, valuationB)
       ) {
+        // alert
         this.buildAlert('success')
+        // request
+        let data = {
+          goods: goods,
+          agent1: agentA,
+          valuation1: valuationA,
+          agent2: agentB,
+          valuation2: valuationB,
+        }
+
+        data = JSON.stringify(data)
+
+        saveWorldApi(data)
+          .then((res) => {
+            console.log('data', res)
+          })
+          .catch((error) => {
+            console.log(error)
+          })
       } else {
         this.buildAlert('danger')
       }
