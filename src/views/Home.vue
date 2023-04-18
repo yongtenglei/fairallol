@@ -415,6 +415,8 @@
 
       <div id="alert-container"></div>
 
+      <div id="result-container"></div>
+
       <button
         type="button"
         class="btn btn-outline-danger btn-lg"
@@ -654,9 +656,11 @@ export default {
         saveWorldApi(data)
           .then((res) => {
             console.log('data', res)
+            console.log('allocation: ', res.data.Allocation)
+            this.buildResult('success', res.data.Allocation)
           })
           .catch((error) => {
-            console.log(error)
+            this.buildResult('danger')
           })
       } else {
         this.buildAlert('danger')
@@ -725,10 +729,82 @@ export default {
 
       innerHTML += css
 
-      container.innerHTML += innerHTML
+      container.innerHTML = innerHTML
+    },
+
+    buildResult(t, data) {
+      // Alert container
+      let container = document.querySelector('#result-container')
+      let innerHTML = ''
+      if (t == 'success') {
+        let allocation = ''
+        for (let [agent, bundle] of Object.entries(data)) {
+          allocation += agent + ': ' + bundle + '\n'
+        }
+
+        console.log(allocation)
+
+        innerHTML = [
+          '<div class="alert alert-success" id="success-alert" role="alert">',
+          '<h4 class="alert-heading">Here we go</h4>',
+          '<p class="mb-0">',
+          '<img  src="/img/LazyGopher.6aae19a1.png" class="alert-img" alt="lazy" />',
+          '<p class="mb-0" style="white-space: pre-line;">',
+          "Hoo... Luckily it wasn't too hard for me\n",
+          'Come see what we have allocated',
+          '</p>',
+          '</p>',
+          '<hr />',
+          '<div style="white-space: pre-line;">',
+          '<strong><i>',
+          allocation,
+          '</i></strong>',
+          '</div>',
+          '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"',
+          '></button>',
+          '</div>',
+        ].join('')
+      } else if (t == 'danger') {
+        innerHTML = [
+          '<div class="alert alert-danger" id="danger-alert" role="alert" >',
+          '<h4 class="alert-heading">',
+          'Ah... Something bad here.',
+          '</h4>',
+          '<p class="mb-0">',
+          '<img  src="/img/MovingGopher.51ad3dba.png" class="alert-img" alt="viking" />',
+          'Try it later OR wait for the professional team to arrive.',
+          '<img  src="/img/GOPHER_VIKING.4fc97cd6.png" class="alert-img" alt="viking" />',
+          '</p>',
+          '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+          '</div>',
+          '</div>',
+        ].join('')
+      }
+
+      let css = [
+        ' <style type="text/css">',
+        '.alert {',
+        '  margin: 3% 0 3% 0;',
+        '}',
+        '.alert h4 {',
+        "  font-family: 'Montserrat';",
+        '  font-size: 1.5rem;',
+        '  font-weight: 500;',
+        '}',
+        '',
+        '.alert-img {',
+        '  height: 150px;',
+        '  width: 150px;',
+        '  border-radius: 100%;',
+        '}',
+        '</style > ',
+      ].join('')
+
+      innerHTML += css
+
+      container.innerHTML = innerHTML
     },
   },
-
   setup() {
     const router = useRouter()
 
