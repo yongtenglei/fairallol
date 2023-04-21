@@ -38,7 +38,7 @@ function handleClickLogo() {
 }
 
 function handleClickAboutMe() {
-  router.push('/about')
+  router.push('/me')
 }
 </script>
 

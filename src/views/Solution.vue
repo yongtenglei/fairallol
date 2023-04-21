@@ -868,13 +868,12 @@ export default {
 
       let css = [
         ' <style type="text/css">',
-        '        .result{',
+        '.result{',
         "  font-family: 'Montserrat';",
-        '  font-size: 2rem;',
+        '  font-size: 1.5rem;',
         '  line-height: 1.5;',
         '  font-weight: 900;',
         '}',
-
         '.alert {',
         '  margin: 3% 0 3% 0;',
         '}',

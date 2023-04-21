@@ -461,6 +461,27 @@
       </button>
     </section>
   </div>
+
+  <template>
+    <img
+      class="prompt-img"
+      style="display: none"
+      src="../assets/gopher/Facepalm_Gopher.png"
+      alt="facepalm-gopher"
+    />
+    <img
+      class="prompt-img"
+      style="display: none"
+      src="../assets/gopher/MovingGopher.png"
+      alt="moving-gopher"
+    />
+    <img
+      class="prompt-img"
+      style="display: none"
+      src="../assets/gopher/GOPHER_VIKING.png"
+      alt="viking-gopher"
+    />
+  </template>
 </template>
 
 <script>
@@ -755,7 +776,7 @@ export default {
           '</p>',
           '</p>',
           '<hr />',
-          '<div style="white-space: pre-line;">',
+          '<div style="white-space: pre-line;" class="result">',
           '<strong><i>',
           allocation,
           '</i></strong>',
@@ -771,7 +792,7 @@ export default {
           'Ah... Something bad here.',
           '</h4>',
           '<p class="mb-0">',
-          '<img  src="/img/MovingGopher.51ad3dba.png" class="alert-img" alt="viking" />',
+          '<img  src="/img/MovingGopher.51ad3dba.png" class="alert-img" alt="moving" />',
           'Try it later OR wait for the professional team to arrive.',
           '<img  src="/img/GOPHER_VIKING.4fc97cd6.png" class="alert-img" alt="viking" />',
           '</p>',
@@ -783,6 +804,12 @@ export default {
 
       let css = [
         ' <style type="text/css">',
+        ' .result{',
+        "  font-family: 'Montserrat';",
+        '  font-size: 1.5rem;',
+        '  line-height: 1.5;',
+        '  font-weight: 900;',
+        '}',
         '.alert {',
         '  margin: 3% 0 3% 0;',
         '}',
