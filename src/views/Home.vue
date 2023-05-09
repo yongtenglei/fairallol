@@ -478,6 +478,12 @@
     <img
       class="prompt-img"
       style="display: none"
+      src="../assets/gopher/LazyGopher.png"
+      alt="lazy-gopher"
+    />
+    <img
+      class="prompt-img"
+      style="display: none"
       src="../assets/gopher/GOPHER_VIKING.png"
       alt="viking-gopher"
     />
@@ -486,6 +492,7 @@
 
 <script>
 import saveWorldApi from '@/api/saveworld'
+
 import { useRouter } from 'vue-router'
 import qs from 'qs'
 export default {

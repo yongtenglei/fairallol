@@ -83,7 +83,7 @@
               class="col-md-2 d-flex justify-content-end align-items-center me-3"
             >
               <label class="" :for="'good' + (index + 1)"
-                >Good {{ index + 1 }}:&nbsp
+                >Good {{ index + 1 }}:&nbsp;
               </label>
             </div>
 
@@ -176,13 +176,17 @@
               <div
                 class="row g-0 d-flex align-items-center justify-content-center"
               >
-                <div class="col-md-4">
-                  <button type="button" class="btn">
-                    Random for {{ agentAName }}
+                <div class="col-md-2">
+                  <button
+                    type="button"
+                    class="btn"
+                    @click.prevent="adjustAgentARangeItems()"
+                  >
+                    Adjust for {{ agentAName }}
                   </button>
                 </div>
 
-                <div class="col-md-8">
+                <div class="col-md-10">
                   <div class="card-body">
                     <h5 class="card-title">{{ agentAName }}</h5>
                     <ul class="list-group list-group-flush">
@@ -254,13 +258,7 @@
               <div
                 class="row g-0 d-flex align-items-center justify-content-center"
               >
-                <div class="col-md-4">
-                  <button type="button" class="btn">
-                    Random for {{ agentBName }}
-                  </button>
-                </div>
-
-                <div class="col-md-8">
+                <div class="col-md-10">
                   <div class="card-body">
                     <h5 class="card-title">{{ agentBName }}</h5>
                     <ul class="list-group list-group-flush">
@@ -316,6 +314,16 @@
                     -->
                   </div>
                 </div>
+
+                <div class="col-md-2">
+                  <button
+                    type="button"
+                    class="btn"
+                    @click.prevent="adjustAgentBRangeItems()"
+                  >
+                    Adjust for {{ agentBName }}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -355,8 +363,8 @@
               >
                 <option selected value="1">Save the World</option>
                 <option value="2">EF1</option>
-                <option value="3">Winner Adjusted</option>
-                <option value="4">MaxMin Share</option>
+                <option value="3">Adjusted Winner</option>
+                <option value="4">Divide And Choose</option>
                 <option value="5">Round Robin</option>
               </select>
               <label for="floatingSelect">Select your fairness protocol</label>
@@ -404,7 +412,9 @@
 
 <script>
 import saveWorldApi from '@/api/saveworld'
-import { capitalize } from 'lodash'
+import adjustedWinnerApi from '@/api/adjusted_winner'
+import divideAndChooseApi from '@/api/divide_and_choose'
+import roundRobinApi from '@/api/roundrobin'
 
 export default {
   data() {
@@ -806,15 +816,47 @@ export default {
 
       data = JSON.stringify(data)
 
-      saveWorldApi(data)
-        .then((res) => {
-          console.log('data', res)
-          console.log('allocation: ', res.data.Allocation)
-          this.buildResult('success', res.data.Allocation)
-        })
-        .catch((error) => {
-          this.buildResult('danger')
-        })
+      if (this.rule == '1' || this.rule == '2') {
+        saveWorldApi(data)
+          .then((res) => {
+            console.log('data', res)
+            console.log('allocation: ', res.data.Allocation)
+            this.buildResult('success', res.data.Allocation)
+          })
+          .catch((error) => {
+            this.buildResult('danger')
+          })
+      } else if (this.rule == '3') {
+        adjustedWinnerApi(data)
+          .then((res) => {
+            console.log('data', res)
+            console.log('allocation: ', res.data.Allocation)
+            this.buildResult('success', res.data.Allocation)
+          })
+          .catch((error) => {
+            this.buildResult('danger')
+          })
+      } else if (this.rule == '4') {
+        divideAndChooseApi(data)
+          .then((res) => {
+            console.log('data', res)
+            console.log('allocation: ', res.data.Allocation)
+            this.buildResult('success', res.data.Allocation)
+          })
+          .catch((error) => {
+            this.buildResult('danger')
+          })
+      } else if (this.rule == '5') {
+        roundRobinApi(data)
+          .then((res) => {
+            console.log('data', res)
+            console.log('allocation: ', res.data.Allocation)
+            this.buildResult('success', res.data.Allocation)
+          })
+          .catch((error) => {
+            this.buildResult('danger')
+          })
+      }
     },
 
     buildResult(t, data) {
@@ -896,6 +938,174 @@ export default {
 
       container.innerHTML = innerHTML
     },
+
+    adjustAgentARangeItems() {
+      const sum = this.agentARangeItems.reduce(
+        (acc, item) => acc + item.value,
+        0
+      )
+      let adjustedRangeItems = []
+
+      if (sum === 0) {
+        let remaining = this.agentATotal
+
+        for (let i = 0; i < this.agentARangeItems.length; i++) {
+          if (i === this.agentARangeItems.length - 1) {
+            adjustedRangeItems.push({
+              ...this.agentARangeItems[i],
+              value: remaining,
+            })
+          } else {
+            const randomValue = Math.floor(Math.random() * remaining)
+            adjustedRangeItems.push({
+              ...this.agentARangeItems[i],
+              value: randomValue,
+            })
+            remaining -= randomValue
+          }
+        }
+      } else {
+        let remaining = 100
+        for (let i = 0; i < this.agentARangeItems.length; i++) {
+          if (i === this.agentARangeItems.length - 1) {
+            adjustedRangeItems.push({
+              ...this.agentARangeItems[i],
+              value: remaining,
+            })
+          } else {
+            const adjustedValue = Math.round(
+              (this.agentARangeItems[i].value / sum) * 100
+            )
+            adjustedRangeItems.push({
+              ...this.agentARangeItems[i],
+              value: adjustedValue,
+            })
+            remaining -= adjustedValue
+          }
+        }
+      }
+
+      this.agentARangeItems = adjustedRangeItems
+    },
+
+    adjustAgentBRangeItems() {
+      const sum = this.agentBRangeItems.reduce(
+        (acc, item) => acc + item.value,
+        0
+      )
+      let adjustedRangeItems = []
+
+      if (sum === 0) {
+        let remaining = this.agentBTotal
+
+        for (let i = 0; i < this.agentBRangeItems.length; i++) {
+          if (i === this.agentBRangeItems.length - 1) {
+            adjustedRangeItems.push({
+              ...this.agentBRangeItems[i],
+              value: remaining,
+            })
+          } else {
+            const randomValue = Math.floor(Math.random() * remaining)
+            adjustedRangeItems.push({
+              ...this.agentBRangeItems[i],
+              value: randomValue,
+            })
+            remaining -= randomValue
+          }
+        }
+      } else {
+        let remaining = this.agentBTotal
+        for (let i = 0; i < this.agentBRangeItems.length; i++) {
+          if (i === this.agentBRangeItems.length - 1) {
+            adjustedRangeItems.push({
+              ...this.agentBRangeItems[i],
+              value: remaining,
+            })
+          } else {
+            const adjustedValue = Math.round(
+              (this.agentBRangeItems[i].value / sum) * 100
+            )
+            adjustedRangeItems.push({
+              ...this.agentBRangeItems[i],
+              value: adjustedValue,
+            })
+            remaining -= adjustedValue
+          }
+        }
+      }
+
+      this.agentBRangeItems = adjustedRangeItems
+    },
+
+    /*adjustAgentARangeItems() {*/
+    /*const sum = this.agentARangeItems.reduce(*/
+    /*(acc, item) => acc + item.value,*/
+    /*0*/
+    /*)*/
+    /*let adjustedRangeItems = []*/
+
+    /*if (sum === 0) {*/
+    /*let remaining = this.agentATotal*/
+
+    /*for (let i = 0; i < this.agentARangeItems.length; i++) {*/
+    /*if (i === this.agentARangeItems.length - 1) {*/
+    /*adjustedRangeItems.push({*/
+    /*...this.agentARangeItems[i],*/
+    /*value: remaining,*/
+    /*})*/
+    /*} else {*/
+    /*const randomValue = Math.floor(Math.random() * remaining)*/
+    /*adjustedRangeItems.push({*/
+    /*...this.agentARangeItems[i],*/
+    /*value: randomValue,*/
+    /*})*/
+    /*remaining -= randomValue*/
+    /*}*/
+    /*}*/
+    /*} else {*/
+    /*adjustedRangeItems = this.agentARangeItems.map((item) => {*/
+    /*const adjustedValue = (item.value / sum) * 100*/
+    /*return { ...item, value: adjustedValue }*/
+    /*})*/
+    /*}*/
+
+    /*this.agentARangeItems = adjustedRangeItems*/
+    /*},*/
+
+    /*adjustAgentBRangeItems() {*/
+    /*const sum = this.agentBRangeItems.reduce(*/
+    /*(acc, item) => acc + item.value,*/
+    /*0*/
+    /*)*/
+    /*let adjustedRangeItems = []*/
+
+    /*if (sum === 0) {*/
+    /*let remaining = this.agentBTotal*/
+
+    /*for (let i = 0; i < this.agentBRangeItems.length; i++) {*/
+    /*if (i === this.agentBRangeItems.length - 1) {*/
+    /*adjustedRangeItems.push({*/
+    /*...this.agentBRangeItems[i],*/
+    /*value: remaining,*/
+    /*})*/
+    /*} else {*/
+    /*const randomValue = Math.floor(Math.random() * remaining)*/
+    /*adjustedRangeItems.push({*/
+    /*...this.agentBRangeItems[i],*/
+    /*value: randomValue,*/
+    /*})*/
+    /*remaining -= randomValue*/
+    /*}*/
+    /*}*/
+    /*} else {*/
+    /*adjustedRangeItems = this.agentBRangeItems.map((item) => {*/
+    /*const adjustedValue = (item.value / sum) * 100*/
+    /*return { ...item, value: adjustedValue }*/
+    /*})*/
+    /*}*/
+
+    /*this.agentBRangeItems = adjustedRangeItems*/
+    /*},*/
   },
 }
 </script>

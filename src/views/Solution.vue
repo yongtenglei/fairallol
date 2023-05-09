@@ -83,7 +83,7 @@
               class="col-md-2 d-flex justify-content-end align-items-center me-3"
             >
               <label class="" :for="'good' + (index + 1)"
-                >Good {{ index + 1 }}:&nbsp
+                >Good {{ index + 1 }}:&nbsp;
               </label>
             </div>
 
