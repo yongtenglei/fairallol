@@ -9,15 +9,16 @@
         <div class="flex-grow" />
         <el-sub-menu index="1">
           <template #title>Learn more</template>
-          <el-menu-item index="1-1">item one</el-menu-item>
-          <el-menu-item index="1-2">item two</el-menu-item>
-          <el-menu-item index="1-3">item three</el-menu-item>
-          <el-sub-menu index="1-4">
-            <template #title>item four</template>
-            <el-menu-item index="1-4-1">item one</el-menu-item>
-            <el-menu-item index="1-4-2">item two</el-menu-item>
-            <el-menu-item index="1-4-3">item three</el-menu-item>
-          </el-sub-menu>
+          <el-menu-item index="1-1" @click="learnEF1"
+            >Save the World (EF1)</el-menu-item
+          >
+          <el-menu-item index="1-2" @click="learnAW"
+            >Adjusted Winner</el-menu-item
+          >
+          <el-menu-item index="1-3" @click="learnDC"
+            >Divide and Choose</el-menu-item
+          >
+          <el-menu-item index="1-4" @click="learnRR">Round Robin</el-menu-item>
         </el-sub-menu>
 
         <el-menu-item index="2" @click="handleClickAboutMe"
@@ -32,6 +33,22 @@
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
+
+function learnEF1() {
+  router.push('/learnmore-ef1')
+}
+
+function learnAW() {
+  router.push('/learnmore-aw')
+}
+
+function learnDC() {
+  router.push('/learnmore-dc')
+}
+
+function learnRR() {
+  router.push('/learnmore-rr')
+}
 
 function handleClickLogo() {
   router.push('/home')

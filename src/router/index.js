@@ -33,10 +33,28 @@ const routes = [
     component: () => import(/* webpackChunkName: "me" */ '../views/Me.vue'),
   },
   {
-    path: '/test',
-    name: 'test',
+    path: '/learnmore-aw',
+    name: 'learnmore-aw',
     component: () =>
-      import(/* webpackChunkName: "test" */ '../views/Test/Test.vue'),
+      import(/* webpackChunkName: "test" */ '../views/LearnMore/AW.vue'),
+  },
+  {
+    path: '/learnmore-ef1',
+    name: 'learnmore-ef1',
+    component: () =>
+      import(/* webpackChunkName: "test" */ '../views/LearnMore/EF1.vue'),
+  },
+  {
+    path: '/learnmore-dc',
+    name: 'learnmore-dc',
+    component: () =>
+      import(/* webpackChunkName: "test" */ '../views/LearnMore/DC.vue'),
+  },
+  {
+    path: '/learnmore-rr',
+    name: 'learnmore-rr',
+    component: () =>
+      import(/* webpackChunkName: "test" */ '../views/LearnMore/RR.vue'),
   },
   {
     path: '/:pathMatch(.*)',
