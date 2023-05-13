@@ -9,16 +9,19 @@
         <div class="flex-grow" />
         <el-sub-menu index="1">
           <template #title>Learn more</template>
-          <el-menu-item index="1-1" @click="learnEF1"
+          <el-menu-item index="1-1" @click="learnBasics"
+            >Fair Allocation Basic</el-menu-item
+          >
+          <el-menu-item index="1-2" @click="learnEF1"
             >Save the World (EF1)</el-menu-item
           >
-          <el-menu-item index="1-2" @click="learnAW"
+          <el-menu-item index="1-3" @click="learnAW"
             >Adjusted Winner</el-menu-item
           >
-          <el-menu-item index="1-3" @click="learnDC"
+          <el-menu-item index="1-4" @click="learnDC"
             >Divide and Choose</el-menu-item
           >
-          <el-menu-item index="1-4" @click="learnRR">Round Robin</el-menu-item>
+          <el-menu-item index="1-5" @click="learnRR">Round Robin</el-menu-item>
         </el-sub-menu>
 
         <el-menu-item index="2" @click="handleClickAboutMe"
@@ -33,6 +36,10 @@
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
+
+function learnBasics() {
+  router.push('/learnmore-basics')
+}
 
 function learnEF1() {
   router.push('/learnmore-ef1')

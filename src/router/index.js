@@ -57,6 +57,12 @@ const routes = [
       import(/* webpackChunkName: "test" */ '../views/LearnMore/RR.vue'),
   },
   {
+    path: '/learnmore-basics',
+    name: 'learnmore-basics',
+    component: () =>
+      import(/* webpackChunkName: "test" */ '../views/LearnMore/Basics.vue'),
+  },
+  {
     path: '/:pathMatch(.*)',
     component: () =>
       import(
