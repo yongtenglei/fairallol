@@ -535,7 +535,7 @@ export default {
     },
 
     checkHealthA: function () {
-      if (this.computedRemainA < 0) {
+      if (this.computedRemainA < 0 || isNaN(this.computedRemainA)) {
         return this.BAD
       } else if (
         this.hotDogA < 0 ||
@@ -566,7 +566,7 @@ export default {
       }
     },
     checkHealthB: function () {
-      if (this.computedRemainB < 0) {
+      if (this.computedRemainB < 0 || isNaN(this.computedRemainB)) {
         return this.BAD
       } else if (
         this.hotDogB < 0 ||
