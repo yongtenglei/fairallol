@@ -91,7 +91,7 @@
               <input
                 type="text"
                 :id="'good' + (index + 1)"
-                placeholder="Please make `-` to combine multiple words. E.g., air conditioner. Use AC or air-conditioner."
+                placeholder="Please make `-` to combine multiple words. E.g., air-conditioner."
                 class="form-control"
                 v-model="goods[index]"
                 :disabled="goodsFormDisabled"

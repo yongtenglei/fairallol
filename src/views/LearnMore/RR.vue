@@ -50,42 +50,85 @@
     </div>
   </section>
 
-
-    <section class="content">
+  <section class="content">
     <div class="container-fluid">
-      <div class="settings">
-          <h1>Random Robin</h1>
-          <div>
-          ◦ Repeat: <br>
-            ◦ For agent 𝑖 = 1,2, … , 𝑛 : <br>
-            ◦ Let agent 𝑖 pick her favourite unallocated item <br>
-            ◦ Until all items are allocated 
+      <h1>Random Robin</h1>
+      <div
+        class="explanation row d-flex align-items-center align-content-center justify-content-center"
+      >
+        <div class="col-lg-6 col-md-6">
+          Repeat: <br />
+          &nbsp;&nbsp; ◦ For agent 𝑖 = 1,2, … , 𝑛 : <br />
+          &nbsp;&nbsp; ◦ Let agent 𝑖 pick her favourite unallocated item <br />
+          &nbsp;&nbsp; ◦ Until all items are allocated
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <img
+              class="title-image"
+              src="../../assets/learnmore/round_robin/explain1.png"
+              alt="invalid example"
+            />
           </div>
-          <p>
-            A set of indivisible items 𝑀 = {1,2, … , 𝑚} and a group of agents 𝑁
-            = {1,2, … , 𝑛}.
-          </p>
-
-          <h4>Task: allocate the items to the agents</h4>
-
-          <p>
-            Each agent 𝑖 ∈ 𝑁 has value (utility) 𝑣<sub>i</sub> (𝑒) ≥ 0 on item 𝑒
-            ∈ 𝑀 : (additive valuation function)
-            <ul>
-              <li>Valuation function of agent 𝑖: 𝑣<sub>i</sub>(X) = &Sigma;<sub>e&isin;X</sub>v<sub>i</sub>(e), for X &sube; M</li>
-            </ul>
-          </p>
-
-          <p>An allocation 𝑿 = (𝑋1, 𝑋2, … , 𝑋𝑛) is a partition of 𝑴 into 𝒏 bundles
-            <ul>
-              <li>&cup;<sub>i&isin;N</sub>X<sub>i</sub> = M and X<sub>i</sub> &cap; X<sub>j</sub> = &empty; for all i &ne; j</li>
-              <li>Agent 𝑖 receives bundle 𝑋𝑖, and has utility 𝑣𝑖 (𝑋<sub>i</sub>)</li>
-            </ul>
-          </p>
+          <div class="col-md-6 mb-3">
+            <img
+              class="title-image"
+              src="../../assets/learnmore/round_robin/explain2.png"
+              alt="invalid example"
+            />
+          </div>
+          <div class="col-md-6 mb-3">
+            <img
+              class="title-image"
+              src="../../assets/learnmore/round_robin/explain3.png"
+              alt="invalid example"
+            />
+          </div>
+          <div class="col-md-6 mb-3">
+            <img
+              class="title-image"
+              src="../../assets/learnmore/round_robin/explain4.png"
+              alt="invalid example"
+            />
+          </div>
+          <div class="col-md-6 mb-3">
+            <img
+              class="title-image"
+              src="../../assets/learnmore/round_robin/explain5.png"
+              alt="invalid example"
+            />
+          </div>
+          <div class="col-md-6 mb-3">
+            <img
+              class="title-image"
+              src="../../assets/learnmore/round_robin/explain6.png"
+              alt="invalid example"
+            />
+          </div>
+          <div class="col mb-3">
+            <div class="row">
+              <div class="col-md-6">
+                <img
+                  class="title-image"
+                  src="../../assets/learnmore/round_robin/explain7.png"
+                  alt="invalid example"
+                />
+              </div>
+              <div class="col-md-3">
+                <p>Good!</p>
+                <img
+                  class="title-image"
+                  src="../../assets/gopher/DRAWING_GOPHER.png"
+                  alt="drawing gopher"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
-
 </template>
 
 <script>
@@ -112,7 +155,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-ul,li{ padding:0;margin:0;list-style:none}
+ul,
+li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
 
 h1 {
   font-family: 'Montserrat';
@@ -130,8 +178,12 @@ h1 {
   padding: 3% 15%;
 }
 
+.explanation {
+  text-align: left;
+}
+
 .title-image {
-  width: 100%;
+  width: 75%;
   /*transform: rotate(25deg);*/
 }
 

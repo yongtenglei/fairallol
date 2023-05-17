@@ -10,7 +10,7 @@
         <el-sub-menu index="1">
           <template #title>Learn more</template>
           <el-menu-item index="1-1" @click="learnBasics"
-            >Fair Allocation Basic</el-menu-item
+            >Fair Allocation Basics</el-menu-item
           >
           <el-menu-item index="1-2" @click="learnEF1"
             >Save the World (EF1)</el-menu-item
